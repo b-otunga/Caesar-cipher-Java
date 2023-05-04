@@ -1,14 +1,28 @@
 package org.bill.util;
 
+import org.bill.model.UserInput;
+
 public class Checks {
-    public boolean operationValidator(){
-        return true;
+
+    public boolean isValid(UserInput userInput){
+        boolean operationIsValid = operationValidator(userInput.getOperation());
+        boolean messageIsValid = messageValidator(userInput.getMessage());
+        boolean keyIsValid = keyValidator(userInput.getKey());
+        return operationIsValid && messageIsValid && keyIsValid;
     }
-    public boolean messageValidator(){
-        return true;
+    private boolean operationValidator(String operation){
+        boolean isValid = operation.equalsIgnoreCase("encode") || operation.equalsIgnoreCase("decode");
+        return isValid;
     }
-    public boolean keyValidator(){
-        return true;
+    private boolean messageValidator(String message){
+        boolean isBlankorEmpty = message.isBlank() && message.isEmpty();
+        return !isBlankorEmpty;
+    }
+    private boolean keyValidator(int key){
+        if(key >=1 && key <= 25){
+            return true;
+        }
+        return false;
     }
 
 }
