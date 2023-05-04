@@ -2,7 +2,6 @@ package org.bill;
 
 import org.bill.model.UserInput;
 import org.bill.util.Checks;
-
 import java.util.Scanner;
 
 public class Main {
@@ -17,16 +16,16 @@ public class Main {
 
         System.out.println("Enter you operation **encode** or **decode**");
         operation = scanner.nextLine();
-        System.out.println("Enter you message");
-        System.out.println("");
+
+        System.out.println("Enter your message");
         message = scanner.nextLine();
+
         System.out.println("Enter key (0-25)");
-        System.out.println("");
         key = scanner.nextInt();
 
         userInput.setKey(key);
         userInput.setMessage(message);
-        userInput.setMessage(operation);
+        userInput.setOperation(operation);
 
         boolean userInputIsValid = checks.isValid(userInput);
 
