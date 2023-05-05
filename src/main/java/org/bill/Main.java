@@ -40,10 +40,10 @@ public class Main {
              String cipherMessage = caesarCipher.encode(userInput.getMessage(), userInput.getKey());
              System.out.println(cipherMessage);
          }
-            else if (userInput.getOperation().equalsIgnoreCase("decode")){
-                String plainMessage = caesarCipher.decode(userInput.getMessage(), userInput.getKey());
-             System.out.println(plainMessage);
-            }
+//            else if (userInput.getOperation().equalsIgnoreCase("decode")){
+////                String plainMessage = caesarCipher.decode(userInput.getMessage(), userInput.getKey());
+//             System.out.println(plainMessage);
+//            }
         }
         else{
             System.out.println("bad request, stop");

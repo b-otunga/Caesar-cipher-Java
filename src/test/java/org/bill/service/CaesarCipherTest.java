@@ -25,5 +25,5 @@ class CaesarCipherTest {
         String output = caesarCipher.encode(plainText,key);
         assertEquals(plainText, output);
     }
-    }
+
 }
