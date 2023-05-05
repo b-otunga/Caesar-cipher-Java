@@ -1,6 +1,7 @@
 package org.bill;
 
 import org.bill.model.UserInput;
+import org.bill.service.CaesarCipher;
 import org.bill.util.Checks;
 import java.util.Scanner;
 
@@ -30,7 +31,7 @@ public class Main {
         boolean userInputIsValid = checks.isValid(userInput);
 
         if(userInputIsValid){
-            System.out.println("Go on");
+         System.out.println();
         }
         else{
             System.out.println("bad request, stop");
