@@ -40,7 +40,7 @@ public class CaesarCipher {
                 encodedMessage +=  charFromMessage;
             }
         }
-        System.out.println(encodedMessage);
+        System.out.println("Your encoded message is: " + encodedMessage);
 
         return encodedMessage;
 }
@@ -71,7 +71,7 @@ public class CaesarCipher {
                 decodedMessage +=  charFromMessage;
             }
         }
-        System.out.println(decodedMessage);
+        System.out.println("Your decoded message is: " + decodedMessage);
 
         return decodedMessage;
     }
