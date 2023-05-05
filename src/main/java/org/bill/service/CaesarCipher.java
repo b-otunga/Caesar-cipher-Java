@@ -27,4 +27,25 @@ public class CaesarCipher {
     public String decode(){
         return "";
     }
+
+    private char shiftChar (char charFromMessage, int key){
+        int originalIndex = lowerAlphabets.indexOf(charFromMessage);
+        int newIndex = (originalIndex + key) % 26;
+        int position;
+        char newChar;
+        if(originalIndex == -1){
+            return charFromMessage;
+        }
+        if(newIndex > 25){
+            position = newIndex -26;
+            newChar = lowerAlphabets.charAt(position);
+        }else if(newIndex < 0){
+            position = newIndex + 26;
+            newChar = lowerAlphabets.charAt(position);
+        }else{
+            position = newIndex;
+            newChar = lowerAlphabets.charAt(position);
+        }
+        return newChar;
+    }
 }
