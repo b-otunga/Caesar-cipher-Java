@@ -14,6 +14,7 @@ public class Main {
         int key;
         UserInput userInput = new UserInput();
         Checks checks = new Checks();
+        UserInput input;
 
         System.out.println("Enter you operation **encode** or **decode**");
         operation = scanner.nextLine();
@@ -28,10 +29,21 @@ public class Main {
         userInput.setMessage(message);
         userInput.setOperation(operation);
 
+        input = userInput;
+
         boolean userInputIsValid = checks.isValid(userInput);
 
         if(userInputIsValid){
-         System.out.println();
+            CaesarCipher caesarCipher = new CaesarCipher();
+         userInput = input;
+         if (userInput.getOperation().equalsIgnoreCase("encode")){
+             String cipherMessage = caesarCipher.encode(userInput.getMessage(), userInput.getKey());
+             System.out.println(cipherMessage);
+         }
+            else if (userInput.getOperation().equalsIgnoreCase("decode")){
+                String plainMessage = caesarCipher.decode(userInput.getMessage(), userInput.getKey());
+             System.out.println(plainMessage);
+            }
         }
         else{
             System.out.println("bad request, stop");
