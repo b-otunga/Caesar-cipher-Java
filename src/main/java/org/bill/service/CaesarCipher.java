@@ -15,7 +15,7 @@ public class CaesarCipher {
     public String encode(String message, int key){
         char [] messageArray = message.toCharArray();
         for(char item: messageArray){
-            char temp = shiftChar(item, key);
+            char temp = shiftChar(item, key, String ops);
             encodedMessage = encodedMessage + temp;
         }
 
@@ -23,11 +23,7 @@ public class CaesarCipher {
 
     }
     public String decode(){
-        char [] messageArray = message.toCharArray();
-        for(char item: messageArray){
-            char temp = shiftChar(item, key);
-            encodedMessage = encodedMessage + temp;
-        }
+
 
         return encodedMessage;
     }
