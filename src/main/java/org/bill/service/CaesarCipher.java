@@ -19,18 +19,27 @@ public class CaesarCipher {
             encodedMessage = encodedMessage + temp;
         }
 
-        char cipherChar = shiftChar();
-
         return encodedMessage;
 
     }
     public String decode(){
-        return "";
-    }
+        char [] messageArray = message.toCharArray();
+        for(char item: messageArray){
+            char temp = shiftChar(item, key);
+            encodedMessage = encodedMessage + temp;
+        }
 
-    private char shiftChar (char charFromMessage, int key){
+        return encodedMessage;
+    }
+    int newIndex;
+    private char shiftChar (char charFromMessage, int key, String ops){
+
         int originalIndex = lowerAlphabets.indexOf(charFromMessage);
-        int newIndex = (originalIndex + key) % 26;
+        if(ops == "e"){
+            newIndex = (originalIndex + key) % 26;
+        } else if(ops == "d"){
+           newIndex = (originalIndex - key) % 26;
+        }
         int position;
         char newChar;
         if(originalIndex == -1){
