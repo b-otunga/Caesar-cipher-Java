@@ -37,16 +37,15 @@ public class Main {
             CaesarCipher caesarCipher = new CaesarCipher();
          userInput = input;
          if (userInput.getOperation().equalsIgnoreCase("encode")){
-             String cipherMessage = caesarCipher.encode(userInput.getMessage(), userInput.getKey());
-             System.out.println(cipherMessage);
+           caesarCipher.encode(userInput.getMessage(), userInput.getKey());
+
          }
-//            else if (userInput.getOperation().equalsIgnoreCase("decode")){
-////                String plainMessage = caesarCipher.decode(userInput.getMessage(), userInput.getKey());
-//             System.out.println(plainMessage);
-//            }
+            else if (userInput.getOperation().equalsIgnoreCase("decode")){
+                caesarCipher.decode(userInput.getMessage(), userInput.getKey());
+            }
         }
         else{
-            System.out.println("bad request, stop");
+            System.out.println("Bad request, please try again");
         }
 
         scanner.close();

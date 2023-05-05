@@ -12,6 +12,7 @@ public class CaesarCipher {
     private final String upperAlphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     String encodedMessage = "";
+    String decodedMessage = "";
     public String encode(String message, int key){
         for (int i = 0; i < message.length(); i++){
             char charFromMessage = message.charAt(i);
@@ -42,4 +43,37 @@ public class CaesarCipher {
         System.out.println(encodedMessage);
 
         return encodedMessage;
-}}
+}
+    public String decode(String message, int key){
+        for (int i = 0; i < message.length(); i++){
+            char charFromMessage = message.charAt(i);
+            if(Character.isLowerCase(charFromMessage)){
+                originalIndex = lowerAlphabets.indexOf(charFromMessage);
+                int newIndex = originalIndex - key;
+                if(newIndex<0){
+                    newIndex = newIndex +26;
+                }
+                decodedMessage += lowerAlphabets.charAt(newIndex);
+            }
+            else if(Character.isUpperCase(charFromMessage)){
+                originalIndex = upperAlphabets.indexOf(charFromMessage);
+                int newIndex = originalIndex - key;
+                if(newIndex<0){
+                    newIndex += 26;
+                }
+
+                decodedMessage += upperAlphabets.charAt(newIndex);
+            }
+            else{
+                originalIndex = lowerAlphabets.indexOf(charFromMessage);
+            }
+            if(originalIndex == -1){
+                decodedMessage +=  charFromMessage;
+            }
+        }
+        System.out.println(decodedMessage);
+
+        return decodedMessage;
+    }
+
+}
