@@ -17,6 +17,13 @@ class CaesarCipherTest {
     }
 
     @Test
-    void decode() {
+    void testDecodereturnsTrue() {
+        String cipherText = "agu";
+        String plainText = "yes";
+        int key = 2;
+        CaesarCipher caesarCipher = new CaesarCipher();
+        String output = caesarCipher.encode(plainText,key);
+        assertEquals(plainText, output);
+    }
     }
 }
